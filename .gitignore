@@ -1,17 +1,51 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+# =========================================
+# Gradle / Build
+# =========================================
+# Gradle cache directory
+.gradle/
+# Kotlin plugin cache/metadata directory
+.kotlin/
+# Build output directories (root and modules)
+build/
+# Generated files (can be more specific if needed)
+# generated/
 
+# =========================================
+# Local configuration
+# =========================================
+# Local machine specific properties (SDK path, etc.)
+# Should not be version controlled.
+local.properties
+# Keystore files used for signing release builds.
+# ***NEVER*** commit your keystore files.
+*.jks
+*.keystore
+
+# =========================================
+# IDE / Editor specific files
+# =========================================
+# IntelliJ / Android Studio
+*.iml
 .idea/
+# VS Code
+.vscode/
+# macOS
+.DS_Store
+
+# =========================================
+# Other generated/temporary files
+# =========================================
+# Android Studio screen captures
+captures/
+# Native build outputs
+.externalNativeBuild/
+.cxx/
+
+# =========================================
+# Optional / Service specific (Uncomment if used)
+# =========================================
+# Google Services file (usually safe to commit, but can be ignored)
+# google-services.json
+# Firebase Crashlytics properties
+# crashlytics.properties
+# crashlytics-build.properties
