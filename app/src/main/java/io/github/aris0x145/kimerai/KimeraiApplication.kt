@@ -1,8 +1,9 @@
 package io.github.aris0x145.kimerai
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp // Import Hilt annotation
 
-// TODO: Add Hilt annotation @HiltAndroidApp later
+@HiltAndroidApp // Add Hilt annotation
 class KimeraiApplication : Application() {
     override fun onCreate() {
         super.onCreate()

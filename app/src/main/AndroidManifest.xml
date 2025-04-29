@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Add INTERNET permission for network requests -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".KimeraiApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kimerai"
         tools:targetApi="31">
+        <!-- Specify the custom Application class -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
