@@ -4,8 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.aris0x145.kimerai.ui.features.KimeraiApp
+import io.github.aris0x145.kimerai.ui.navigation.KimeraiNavGraph
 import io.github.aris0x145.kimerai.ui.theme.KimeraiTheme
 
 @AndroidEntryPoint
@@ -15,7 +16,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             KimeraiTheme {
-                KimeraiApp()
+                val navController = rememberNavController()
+                KimeraiNavGraph(navController = navController)
             }
         }
     }
