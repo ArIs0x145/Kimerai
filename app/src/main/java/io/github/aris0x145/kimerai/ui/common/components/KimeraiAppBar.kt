@@ -2,8 +2,8 @@ package io.github.aris0x145.kimerai.ui.common.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -21,9 +21,9 @@ import io.github.aris0x145.kimerai.ui.navigation.NavRoutes
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun KimeraiAppBar(
+    modifier: Modifier = Modifier,
     navController: NavController,
-    viewModel: ModelSelectionViewModel = hiltViewModel(),
-    modifier: Modifier = Modifier
+    viewModel: ModelSelectionViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
     
@@ -63,13 +63,13 @@ fun KimeraiAppBar(
                 }
                 Spacer(modifier = Modifier.weight(1f))
                 
-                // 右側的選單按鈕 - 點擊跳轉到多功能工具畫面
+                // 右側的更多選項按鈕 - 直接跳轉到更多選項畫面
                 IconButton(onClick = { 
-                    navController.navigate(NavRoutes.TOOLS) 
+                    navController.navigate(NavRoutes.MORE_OPTIONS) 
                 }) {
                     Icon(
                         imageVector = Icons.Default.Menu,
-                        contentDescription = "工具選單"
+                        contentDescription = "更多選項"
                     )
                 }
             }
@@ -81,14 +81,16 @@ fun KimeraiAppBar(
 @Composable
 fun ModelDropdownMenu(
     expanded: Boolean,
-    models: List<AiModel>,
+    models: List<AiModel>, 
     onModelSelected: (AiModel) -> Unit,
     onDismissRequest: () -> Unit,
-    navController: NavController
+    navController: NavController,
+    modifier: Modifier = Modifier
 ) {
     DropdownMenu(
         expanded = expanded,
-        onDismissRequest = onDismissRequest
+        onDismissRequest = onDismissRequest,
+        modifier = modifier
     ) {
         // 模型配置選項
         DropdownMenuItem(
