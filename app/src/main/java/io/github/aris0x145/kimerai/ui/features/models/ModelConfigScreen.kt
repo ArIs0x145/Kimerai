@@ -24,9 +24,9 @@ import io.github.aris0x145.kimerai.ui.theme.KimeraiTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ModelConfigScreen(
+    modifier: Modifier = Modifier,
     navController: NavController,
-    viewModel: ModelSelectionViewModel = hiltViewModel(),
-    modifier: Modifier = Modifier
+    viewModel: ModelSelectionViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
     

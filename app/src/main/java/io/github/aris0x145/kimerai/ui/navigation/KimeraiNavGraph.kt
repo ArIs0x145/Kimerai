@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import io.github.aris0x145.kimerai.ui.features.chat.ChatScreen
 import io.github.aris0x145.kimerai.ui.features.history.HistoryScreen
 import io.github.aris0x145.kimerai.ui.features.models.ModelConfigScreen
-import io.github.aris0x145.kimerai.ui.features.tools.ToolsScreen
+import io.github.aris0x145.kimerai.ui.features.settings.MoreOptionsScreen
 
 /**
  * 應用主導航圖
@@ -31,9 +31,9 @@ fun KimeraiNavGraph(
             HistoryScreen(navController = navController)
         }
         
-        // 多功能工具畫面
-        composable(route = NavRoutes.TOOLS) {
-            ToolsScreen(navController = navController)
+        // 更多選項畫面
+        composable(route = NavRoutes.MORE_OPTIONS) {
+            MoreOptionsScreen(navController = navController)
         }
         
         // 模型配置畫面

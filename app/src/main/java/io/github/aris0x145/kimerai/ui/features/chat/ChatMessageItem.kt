@@ -1,6 +1,5 @@
 package io.github.aris0x145.kimerai.ui.features.chat
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -21,8 +20,8 @@ import java.util.*
  */
 @Composable
 fun ChatMessageItem(
-    message: ChatMessage,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    message: ChatMessage
 ) {
     val isUserMessage = message.isUserMessage
     val alignment = if (isUserMessage) Alignment.End else Alignment.Start

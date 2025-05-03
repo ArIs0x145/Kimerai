@@ -1,4 +1,4 @@
-package io.github.aris0x145.kimerai.ui.features.tools
+package io.github.aris0x145.kimerai.ui.features.settings
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,8 +9,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Language
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Api
+import androidx.compose.material.icons.filled.DataObject
+import androidx.compose.material.icons.filled.Extension
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.PersonalInjury
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -35,7 +38,7 @@ import io.github.aris0x145.kimerai.ui.theme.KimeraiTheme
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ToolsScreen(
+fun MoreOptionsScreen(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
@@ -67,29 +70,63 @@ fun ToolsScreen(
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // 語言設定選項
+            // 個人化選項
             OptionCard(
-                title = "語言設定",
-                description = "變更應用程式介面語言",
-                icon = Icons.Default.Language,
+                title = "個人化",
+                description = "調整語言、主題和顯示設定",
+                icon = Icons.Default.PersonalInjury,
                 onClick = {
-                    // TODO: 顯示語言設定對話框
+                    // TODO: 導航到個人化頁面
                 }
             )
             
             Spacer(modifier = Modifier.height(16.dp))
             
-            // 應用設定選項
+            // 模型 API 設定
             OptionCard(
-                title = "應用設定",
-                description = "管理應用程式的一般設定",
-                icon = Icons.Default.Settings,
+                title = "模型 API 設定",
+                description = "管理 OpenAI、Gemini 等 API 金鑰",
+                icon = Icons.Default.Api,
                 onClick = {
-                    // TODO: 導航到設定頁面
+                    // TODO: 導航到模型 API 設定頁面
                 }
             )
             
-            // 可以根據需求添加更多選項卡片
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            // 插件與擴展
+            OptionCard(
+                title = "插件與擴展",
+                description = "管理 MCP 插件和功能擴展",
+                icon = Icons.Default.Extension,
+                onClick = {
+                    // TODO: 導航到插件與擴展頁面
+                }
+            )
+            
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            // 資料管理
+            OptionCard(
+                title = "資料管理",
+                description = "管理對話歷史、檔案和備份",
+                icon = Icons.Default.DataObject,
+                onClick = {
+                    // TODO: 導航到資料管理頁面
+                }
+            )
+            
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            // 關於應用
+            OptionCard(
+                title = "關於",
+                description = "查看版本資訊和開發者資訊",
+                icon = Icons.Default.Info,
+                onClick = {
+                    // TODO: 導航到關於頁面
+                }
+            )
         }
     }
 }
@@ -141,8 +178,8 @@ fun OptionCard(
 
 @Preview(showBackground = true)
 @Composable
-fun ToolsScreenPreview() {
+fun MoreOptionsScreenPreview() {
     KimeraiTheme {
-        ToolsScreen(navController = rememberNavController())
+        MoreOptionsScreen(navController = rememberNavController())
     }
 }

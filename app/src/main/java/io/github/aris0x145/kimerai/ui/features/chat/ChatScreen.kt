@@ -23,9 +23,9 @@ import io.github.aris0x145.kimerai.ui.theme.KimeraiTheme
  */
 @Composable
 fun ChatScreen(
+    modifier: Modifier = Modifier,
     navController: NavController,
-    viewModel: ChatViewModel = hiltViewModel(),
-    modifier: Modifier = Modifier
+    viewModel: ChatViewModel = hiltViewModel()
 ) {
     var messageText by remember { mutableStateOf("") }
     val chatState by viewModel.uiState.collectAsState()
@@ -76,11 +76,11 @@ fun ChatScreen(
 
 @Composable
 fun ChatInputBar(
+    modifier: Modifier = Modifier,
     messageText: String,
     onMessageTextChange: (String) -> Unit,
     onSendClick: () -> Unit,
-    isLoading: Boolean = false,
-    modifier: Modifier = Modifier
+    isLoading: Boolean = false
 ) {
     Surface(
         tonalElevation = 3.dp,

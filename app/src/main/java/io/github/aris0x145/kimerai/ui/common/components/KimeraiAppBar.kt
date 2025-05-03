@@ -21,9 +21,9 @@ import io.github.aris0x145.kimerai.ui.navigation.NavRoutes
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun KimeraiAppBar(
+    modifier: Modifier = Modifier,
     navController: NavController,
-    viewModel: ModelSelectionViewModel = hiltViewModel(),
-    modifier: Modifier = Modifier
+    viewModel: ModelSelectionViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
     
@@ -65,7 +65,7 @@ fun KimeraiAppBar(
                 
                 // 右側的更多選項按鈕 - 直接跳轉到更多選項畫面
                 IconButton(onClick = { 
-                    navController.navigate(NavRoutes.TOOLS) 
+                    navController.navigate(NavRoutes.MORE_OPTIONS) 
                 }) {
                     Icon(
                         imageVector = Icons.Default.Menu,
@@ -81,14 +81,16 @@ fun KimeraiAppBar(
 @Composable
 fun ModelDropdownMenu(
     expanded: Boolean,
-    models: List<AiModel>,
+    models: List<AiModel>, 
     onModelSelected: (AiModel) -> Unit,
     onDismissRequest: () -> Unit,
-    navController: NavController
+    navController: NavController,
+    modifier: Modifier = Modifier
 ) {
     DropdownMenu(
         expanded = expanded,
-        onDismissRequest = onDismissRequest
+        onDismissRequest = onDismissRequest,
+        modifier = modifier
     ) {
         // 模型配置選項
         DropdownMenuItem(
