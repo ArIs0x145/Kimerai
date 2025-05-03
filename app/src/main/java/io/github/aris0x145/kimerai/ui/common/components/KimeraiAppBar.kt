@@ -2,8 +2,8 @@ package io.github.aris0x145.kimerai.ui.common.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -63,13 +63,13 @@ fun KimeraiAppBar(
                 }
                 Spacer(modifier = Modifier.weight(1f))
                 
-                // 右側的選單按鈕 - 點擊跳轉到多功能工具畫面
+                // 右側的更多選項按鈕 - 直接跳轉到更多選項畫面
                 IconButton(onClick = { 
                     navController.navigate(NavRoutes.TOOLS) 
                 }) {
                     Icon(
                         imageVector = Icons.Default.Menu,
-                        contentDescription = "工具選單"
+                        contentDescription = "更多選項"
                     )
                 }
             }
