@@ -7,12 +7,12 @@ import androidx.navigation.compose.composable
 import io.github.aris0x145.kimerai.ui.features.chat.ChatScreen
 import io.github.aris0x145.kimerai.ui.features.history.HistoryScreen
 import io.github.aris0x145.kimerai.ui.features.models.ModelConfigScreen
-import io.github.aris0x145.kimerai.ui.features.settings.AboutScreen
-import io.github.aris0x145.kimerai.ui.features.settings.ApiSettingsScreen
-import io.github.aris0x145.kimerai.ui.features.settings.DataManagementScreen
+import io.github.aris0x145.kimerai.ui.features.settings.about.AboutScreen
+import io.github.aris0x145.kimerai.ui.features.settings.api.ApiSettingsScreen
+import io.github.aris0x145.kimerai.ui.features.settings.data.DataManagementScreen
 import io.github.aris0x145.kimerai.ui.features.settings.MoreOptionsScreen
-import io.github.aris0x145.kimerai.ui.features.settings.PersonalizationScreen
-import io.github.aris0x145.kimerai.ui.features.settings.PluginsScreen
+import io.github.aris0x145.kimerai.ui.features.settings.personalization.PersonalizationScreen
+import io.github.aris0x145.kimerai.ui.features.settings.plugins.PluginsScreen
 
 /**
  * 應用主導航圖

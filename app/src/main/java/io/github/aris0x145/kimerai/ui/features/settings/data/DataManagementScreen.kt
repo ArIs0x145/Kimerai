@@ -1,4 +1,4 @@
-package io.github.aris0x145.kimerai.ui.features.settings
+package io.github.aris0x145.kimerai.ui.features.settings.data
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -9,11 +9,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Extension
-import androidx.compose.material.icons.filled.KeyboardArrowRight
-import androidx.compose.material.icons.filled.Store
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Download
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
@@ -29,14 +27,14 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PluginsScreen(
+fun DataManagementScreen(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("插件與擴展") },
+                title = { Text("資料管理") },
                 navigationIcon = {
                     IconButton(onClick = { navController.navigateUp() }) {
                         Icon(
@@ -59,49 +57,24 @@ fun PluginsScreen(
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
         ) {
-            // MCP 插件管理
+            // 資料匯出
             ListItem(
-                headlineContent = { Text("MCP 插件管理") },
-                supportingContent = { Text("管理 Model Context Protocol 插件") },
+                headlineContent = { Text("資料匯出") },
+                supportingContent = { Text("匯出對話歷史和相關資料") },
                 leadingContent = { 
                     Icon(
-                        imageVector = Icons.Default.Extension,
+                        imageVector = Icons.Default.Download,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.primary
                     )
                 },
                 trailingContent = {
                     IconButton(onClick = { 
-                        // TODO: 導航到 MCP 插件管理頁面
+                        // TODO: 導航到資料匯出頁面或顯示匯出選項對話框
                     }) {
                         Icon(
-                            imageVector = Icons.Default.KeyboardArrowRight,
-                            contentDescription = "前往插件管理"
-                        )
-                    }
-                }
-            )
-            
-            HorizontalDivider()
-            
-            // 插件市場
-            ListItem(
-                headlineContent = { Text("插件市場") },
-                supportingContent = { Text("瀏覽並安裝新功能擴展") },
-                leadingContent = { 
-                    Icon(
-                        imageVector = Icons.Default.Store,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                },
-                trailingContent = {
-                    IconButton(onClick = { 
-                        // TODO: 導航到插件市場頁面
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowRight,
-                            contentDescription = "前往插件市場"
+                            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                            contentDescription = "前往資料匯出"
                         )
                     }
                 }

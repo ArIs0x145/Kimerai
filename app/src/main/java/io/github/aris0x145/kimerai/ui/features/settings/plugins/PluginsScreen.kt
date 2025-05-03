@@ -1,4 +1,4 @@
-package io.github.aris0x145.kimerai.ui.features.settings
+package io.github.aris0x145.kimerai.ui.features.settings.plugins
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -9,8 +9,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Api
-import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Extension
+import androidx.compose.material.icons.filled.Store
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -25,18 +26,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import io.github.aris0x145.kimerai.ui.navigation.NavRoutes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ApiSettingsScreen(
+fun PluginsScreen(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("模型 API 設定") },
+                title = { Text("插件與擴展") },
                 navigationIcon = {
                     IconButton(onClick = { navController.navigateUp() }) {
                         Icon(
@@ -59,24 +59,24 @@ fun ApiSettingsScreen(
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
         ) {
-            // OpenAI API 設定
+            // MCP 插件管理
             ListItem(
-                headlineContent = { Text("OpenAI API 設定") },
-                supportingContent = { Text("管理 OpenAI API 金鑰") },
+                headlineContent = { Text("MCP 插件管理") },
+                supportingContent = { Text("管理 Model Context Protocol 插件") },
                 leadingContent = { 
                     Icon(
-                        imageVector = Icons.Default.Api,
+                        imageVector = Icons.Default.Extension,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.primary
                     )
                 },
                 trailingContent = {
                     IconButton(onClick = { 
-                        // TODO: 導航到 OpenAI API 設定頁面
+                        // TODO: 導航到 MCP 插件管理頁面
                     }) {
                         Icon(
-                            imageVector = Icons.Default.KeyboardArrowRight,
-                            contentDescription = "前往設定"
+                            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                            contentDescription = "前往插件管理"
                         )
                     }
                 }
@@ -84,74 +84,24 @@ fun ApiSettingsScreen(
             
             HorizontalDivider()
             
-            // Google Gemini API 設定
+            // 插件市場
             ListItem(
-                headlineContent = { Text("Google Gemini API 設定") },
-                supportingContent = { Text("管理 Google Gemini API 金鑰") },
+                headlineContent = { Text("插件市場") },
+                supportingContent = { Text("瀏覽並安裝新功能擴展") },
                 leadingContent = { 
                     Icon(
-                        imageVector = Icons.Default.Api,
+                        imageVector = Icons.Default.Store,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.primary
                     )
                 },
                 trailingContent = {
                     IconButton(onClick = { 
-                        // TODO: 導航到 Google Gemini API 設定頁面
+                        // TODO: 導航到插件市場頁面
                     }) {
                         Icon(
-                            imageVector = Icons.Default.KeyboardArrowRight,
-                            contentDescription = "前往設定"
-                        )
-                    }
-                }
-            )
-            
-            HorizontalDivider()
-            
-            // Anthropic API 設定
-            ListItem(
-                headlineContent = { Text("Anthropic API 設定") },
-                supportingContent = { Text("管理 Anthropic API 金鑰") },
-                leadingContent = { 
-                    Icon(
-                        imageVector = Icons.Default.Api,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                },
-                trailingContent = {
-                    IconButton(onClick = { 
-                        // TODO: 導航到 Anthropic API 設定頁面
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowRight,
-                            contentDescription = "前往設定"
-                        )
-                    }
-                }
-            )
-            
-            HorizontalDivider()
-            
-            // Deepseek API 設定
-            ListItem(
-                headlineContent = { Text("Deepseek API 設定") },
-                supportingContent = { Text("管理 Deepseek API 金鑰") },
-                leadingContent = { 
-                    Icon(
-                        imageVector = Icons.Default.Api,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                },
-                trailingContent = {
-                    IconButton(onClick = { 
-                        // TODO: 導航到 Deepseek API 設定頁面
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowRight,
-                            contentDescription = "前往設定"
+                            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                            contentDescription = "前往插件市場"
                         )
                     }
                 }

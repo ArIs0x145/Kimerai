@@ -1,4 +1,4 @@
-package io.github.aris0x145.kimerai.ui.features.settings
+package io.github.aris0x145.kimerai.ui.features.settings.api
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -9,9 +9,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.KeyboardArrowRight
-import androidx.compose.material.icons.filled.Update
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Api
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -29,14 +28,14 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AboutScreen(
+fun ApiSettingsScreen(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("關於") },
+                title = { Text("模型 API 設定") },
                 navigationIcon = {
                     IconButton(onClick = { navController.navigateUp() }) {
                         Icon(
@@ -59,39 +58,24 @@ fun AboutScreen(
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
         ) {
-            // 版本資訊
+            // OpenAI API 設定
             ListItem(
-                headlineContent = { Text("版本資訊") },
-                supportingContent = { Text("Kimerai 1.0.0 (2025年5月)") },
+                headlineContent = { Text("OpenAI API 設定") },
+                supportingContent = { Text("管理 OpenAI API 金鑰") },
                 leadingContent = { 
                     Icon(
-                        imageVector = Icons.Default.Info,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                }
-            )
-            
-            HorizontalDivider()
-            
-            // 版本更新日誌
-            ListItem(
-                headlineContent = { Text("版本更新日誌") },
-                supportingContent = { Text("檢視版本更新歷史") },
-                leadingContent = { 
-                    Icon(
-                        imageVector = Icons.Default.Info,
+                        imageVector = Icons.Default.Api,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.primary
                     )
                 },
                 trailingContent = {
                     IconButton(onClick = { 
-                        // TODO: 顯示版本更新日誌對話框
+                        // TODO: 導航到 OpenAI API 設定頁面
                     }) {
                         Icon(
-                            imageVector = Icons.Default.KeyboardArrowRight,
-                            contentDescription = "查看更新日誌"
+                            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                            contentDescription = "前往設定"
                         )
                     }
                 }
@@ -99,24 +83,74 @@ fun AboutScreen(
             
             HorizontalDivider()
             
-            // 檢查更新
+            // Google Gemini API 設定
             ListItem(
-                headlineContent = { Text("檢查更新") },
-                supportingContent = { Text("查找最新版本") },
+                headlineContent = { Text("Google Gemini API 設定") },
+                supportingContent = { Text("管理 Google Gemini API 金鑰") },
                 leadingContent = { 
                     Icon(
-                        imageVector = Icons.Default.Update,
+                        imageVector = Icons.Default.Api,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.primary
                     )
                 },
                 trailingContent = {
                     IconButton(onClick = { 
-                        // TODO: 檢查更新功能
+                        // TODO: 導航到 Google Gemini API 設定頁面
                     }) {
                         Icon(
-                            imageVector = Icons.Default.KeyboardArrowRight,
-                            contentDescription = "檢查更新"
+                            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                            contentDescription = "前往設定"
+                        )
+                    }
+                }
+            )
+            
+            HorizontalDivider()
+            
+            // Anthropic API 設定
+            ListItem(
+                headlineContent = { Text("Anthropic API 設定") },
+                supportingContent = { Text("管理 Anthropic API 金鑰") },
+                leadingContent = { 
+                    Icon(
+                        imageVector = Icons.Default.Api,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                },
+                trailingContent = {
+                    IconButton(onClick = { 
+                        // TODO: 導航到 Anthropic API 設定頁面
+                    }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                            contentDescription = "前往設定"
+                        )
+                    }
+                }
+            )
+            
+            HorizontalDivider()
+            
+            // Deepseek API 設定
+            ListItem(
+                headlineContent = { Text("Deepseek API 設定") },
+                supportingContent = { Text("管理 Deepseek API 金鑰") },
+                leadingContent = { 
+                    Icon(
+                        imageVector = Icons.Default.Api,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                },
+                trailingContent = {
+                    IconButton(onClick = { 
+                        // TODO: 導航到 Deepseek API 設定頁面
+                    }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                            contentDescription = "前往設定"
                         )
                     }
                 }
