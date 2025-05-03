@@ -31,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import io.github.aris0x145.kimerai.ui.navigation.NavRoutes
 import io.github.aris0x145.kimerai.ui.theme.KimeraiTheme
 
 /**
@@ -76,7 +77,7 @@ fun MoreOptionsScreen(
                 description = "調整語言、主題和顯示設定",
                 icon = Icons.Default.PersonalInjury,
                 onClick = {
-                    // TODO: 導航到個人化頁面
+                    navController.navigate(NavRoutes.PERSONALIZATION)
                 }
             )
             
@@ -88,7 +89,7 @@ fun MoreOptionsScreen(
                 description = "管理 OpenAI、Gemini 等 API 金鑰",
                 icon = Icons.Default.Api,
                 onClick = {
-                    // TODO: 導航到模型 API 設定頁面
+                    navController.navigate(NavRoutes.API_SETTINGS)
                 }
             )
             
@@ -100,7 +101,7 @@ fun MoreOptionsScreen(
                 description = "管理 MCP 插件和功能擴展",
                 icon = Icons.Default.Extension,
                 onClick = {
-                    // TODO: 導航到插件與擴展頁面
+                    navController.navigate(NavRoutes.PLUGINS)
                 }
             )
             
@@ -112,7 +113,7 @@ fun MoreOptionsScreen(
                 description = "管理對話歷史、檔案和備份",
                 icon = Icons.Default.DataObject,
                 onClick = {
-                    // TODO: 導航到資料管理頁面
+                    navController.navigate(NavRoutes.DATA_MANAGEMENT)
                 }
             )
             
@@ -124,7 +125,7 @@ fun MoreOptionsScreen(
                 description = "查看版本資訊和開發者資訊",
                 icon = Icons.Default.Info,
                 onClick = {
-                    // TODO: 導航到關於頁面
+                    navController.navigate(NavRoutes.ABOUT)
                 }
             )
         }

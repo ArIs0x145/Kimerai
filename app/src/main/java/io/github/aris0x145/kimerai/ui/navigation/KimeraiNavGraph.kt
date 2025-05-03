@@ -7,7 +7,12 @@ import androidx.navigation.compose.composable
 import io.github.aris0x145.kimerai.ui.features.chat.ChatScreen
 import io.github.aris0x145.kimerai.ui.features.history.HistoryScreen
 import io.github.aris0x145.kimerai.ui.features.models.ModelConfigScreen
+import io.github.aris0x145.kimerai.ui.features.settings.AboutScreen
+import io.github.aris0x145.kimerai.ui.features.settings.ApiSettingsScreen
+import io.github.aris0x145.kimerai.ui.features.settings.DataManagementScreen
 import io.github.aris0x145.kimerai.ui.features.settings.MoreOptionsScreen
+import io.github.aris0x145.kimerai.ui.features.settings.PersonalizationScreen
+import io.github.aris0x145.kimerai.ui.features.settings.PluginsScreen
 
 /**
  * 應用主導航圖
@@ -39,6 +44,31 @@ fun KimeraiNavGraph(
         // 模型配置畫面
         composable(route = NavRoutes.MODEL_CONFIG) {
             ModelConfigScreen(navController = navController)
+        }
+        
+        // 個人化設定頁面
+        composable(route = NavRoutes.PERSONALIZATION) {
+            PersonalizationScreen(navController = navController)
+        }
+        
+        // 模型 API 設定頁面
+        composable(route = NavRoutes.API_SETTINGS) {
+            ApiSettingsScreen(navController = navController)
+        }
+        
+        // 插件與擴展頁面
+        composable(route = NavRoutes.PLUGINS) {
+            PluginsScreen(navController = navController)
+        }
+        
+        // 資料管理頁面
+        composable(route = NavRoutes.DATA_MANAGEMENT) {
+            DataManagementScreen(navController = navController)
+        }
+        
+        // 關於頁面
+        composable(route = NavRoutes.ABOUT) {
+            AboutScreen(navController = navController)
         }
     }
 }
