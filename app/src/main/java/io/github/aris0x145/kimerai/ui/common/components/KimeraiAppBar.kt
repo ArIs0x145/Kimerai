@@ -35,7 +35,7 @@ fun KimeraiAppBar(
             ) {
                 // 左側歷史按鈕 - 點擊跳轉到歷史記錄畫面
                 IconButton(onClick = { 
-                    navController.navigate(NavRoutes.HISTORY) 
+                    navController.navigate(NavRoutes.Main.History.route)
                 }) {
                     Icon(
                         imageVector = Icons.Default.History,
@@ -65,7 +65,7 @@ fun KimeraiAppBar(
                 
                 // 右側的更多選項按鈕 - 直接跳轉到更多選項畫面
                 IconButton(onClick = { 
-                    navController.navigate(NavRoutes.MORE_OPTIONS) 
+                    navController.navigate(NavRoutes.Main.Settings.route)
                 }) {
                     Icon(
                         imageVector = Icons.Default.Menu,
@@ -103,7 +103,7 @@ fun ModelDropdownMenu(
             },
             onClick = { 
                 onDismissRequest()
-                navController.navigate(NavRoutes.MODEL_CONFIG)
+                navController.navigate(NavRoutes.Settings.Model.Main.route)
             }
         )
         

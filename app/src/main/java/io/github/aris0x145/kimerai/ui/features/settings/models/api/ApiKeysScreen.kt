@@ -1,9 +1,7 @@
-package io.github.aris0x145.kimerai.ui.features.settings.api
+package io.github.aris0x145.kimerai.ui.features.settings.models.api
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -25,17 +23,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import io.github.aris0x145.kimerai.ui.navigation.NavRoutes
 
+/**
+ * API 金鑰管理頁面
+ * 允許用戶管理不同模型供應商的 API 金鑰
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ApiSettingsScreen(
+fun ApiKeysScreen(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("模型 API 設定") },
+                title = { Text("API 金鑰管理") },
                 navigationIcon = {
                     IconButton(onClick = { navController.navigateUp() }) {
                         Icon(
@@ -71,7 +74,7 @@ fun ApiSettingsScreen(
                 },
                 trailingContent = {
                     IconButton(onClick = { 
-                        // TODO: 導航到 OpenAI API 設定頁面
+                        //navController.navigate(NavRoutes.OPENAI_SETTINGS)
                     }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
@@ -96,7 +99,7 @@ fun ApiSettingsScreen(
                 },
                 trailingContent = {
                     IconButton(onClick = { 
-                        // TODO: 導航到 Google Gemini API 設定頁面
+                        //navController.navigate(NavRoutes.GEMINI_SETTINGS)
                     }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
@@ -121,7 +124,7 @@ fun ApiSettingsScreen(
                 },
                 trailingContent = {
                     IconButton(onClick = { 
-                        // TODO: 導航到 Anthropic API 設定頁面
+                        //navController.navigate(NavRoutes.ANTHROPIC_SETTINGS)
                     }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
@@ -146,7 +149,7 @@ fun ApiSettingsScreen(
                 },
                 trailingContent = {
                     IconButton(onClick = { 
-                        // TODO: 導航到 Deepseek API 設定頁面
+                        //navController.navigate(NavRoutes.DEEPSEEK_SETTINGS)
                     }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
@@ -155,8 +158,6 @@ fun ApiSettingsScreen(
                     }
                 }
             )
-            
-            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }

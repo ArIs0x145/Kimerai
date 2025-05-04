@@ -39,7 +39,7 @@ import io.github.aris0x145.kimerai.ui.theme.KimeraiTheme
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MoreOptionsScreen(
+fun SettingsScreen(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
@@ -77,7 +77,7 @@ fun MoreOptionsScreen(
                 description = "調整語言、主題和顯示設定",
                 icon = Icons.Default.PersonalInjury,
                 onClick = {
-                    navController.navigate(NavRoutes.PERSONALIZATION)
+                    navController.navigate(NavRoutes.Settings.Personalization.route)
                 }
             )
             
@@ -85,11 +85,11 @@ fun MoreOptionsScreen(
             
             // 模型 API 設定
             OptionCard(
-                title = "模型 API 設定",
-                description = "管理 OpenAI、Gemini 等 API 金鑰",
+                title = "模型設定",
+                description = "管理 API 金鑰和參數",
                 icon = Icons.Default.Api,
                 onClick = {
-                    navController.navigate(NavRoutes.API_SETTINGS)
+                    navController.navigate(NavRoutes.Settings.Model.Main.route)
                 }
             )
             
@@ -101,7 +101,7 @@ fun MoreOptionsScreen(
                 description = "管理 MCP 插件和功能擴展",
                 icon = Icons.Default.Extension,
                 onClick = {
-                    navController.navigate(NavRoutes.PLUGINS)
+                    navController.navigate(NavRoutes.Settings.Plugins.route)
                 }
             )
             
@@ -113,7 +113,7 @@ fun MoreOptionsScreen(
                 description = "管理對話歷史、檔案和備份",
                 icon = Icons.Default.DataObject,
                 onClick = {
-                    navController.navigate(NavRoutes.DATA_MANAGEMENT)
+                    navController.navigate(NavRoutes.Settings.Data.route)
                 }
             )
             
@@ -125,7 +125,7 @@ fun MoreOptionsScreen(
                 description = "查看版本資訊和開發者資訊",
                 icon = Icons.Default.Info,
                 onClick = {
-                    navController.navigate(NavRoutes.ABOUT)
+                    navController.navigate(NavRoutes.Settings.About.route)
                 }
             )
         }
@@ -179,8 +179,8 @@ fun OptionCard(
 
 @Preview(showBackground = true)
 @Composable
-fun MoreOptionsScreenPreview() {
+fun SettingsScreenPreview() {
     KimeraiTheme {
-        MoreOptionsScreen(navController = rememberNavController())
+        SettingsScreen(navController = rememberNavController())
     }
 }
