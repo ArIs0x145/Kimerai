@@ -42,7 +42,23 @@ android {
 }
 
 dependencies {
-
+    // 功能模組依賴
+    implementation(project(":feature:conversation"))
+    implementation(project(":feature:chat-history"))
+    implementation(project(":feature:settings"))
+    implementation(project(":feature:tool-hub"))
+    
+    // 核心模組依賴
+    implementation(project(":core:ui"))
+    implementation(project(":core:common"))
+    implementation(project(":core:model-selector"))
+    implementation(project(":core:navigation"))
+    
+    // 資料相關依賴
+    implementation(project(":domain"))
+    implementation(project(":data"))
+    
+    // Compose 相關
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -53,14 +69,15 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material.icons.extended)
     
-    // Navigation
+    // 導航
     implementation(libs.androidx.navigation.compose)
 
-    // Hilt
+    // Hilt 依賴注入
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
 
+    // 測試
     testImplementation(platform(libs.androidx.compose.bom))
     testImplementation(libs.junit)
 
@@ -69,6 +86,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.ui.test.junit4)
 
+    // Debug
     debugImplementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)

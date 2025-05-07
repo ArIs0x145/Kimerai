@@ -33,6 +33,7 @@ include(":core:network")
 include(":core:database")
 include(":core:common")
 include(":core:model-selector")
+include(":core:navigation")
 
 // Domain
 include(":domain")
