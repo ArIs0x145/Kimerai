@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
+    alias (libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -42,21 +43,21 @@ android {
 }
 
 dependencies {
-    // 功能模組依賴
-    implementation(project(":feature:conversation"))
-    implementation(project(":feature:chat-history"))
-    implementation(project(":feature:settings"))
-    implementation(project(":feature:tool-hub"))
-    
-    // 核心模組依賴
-    implementation(project(":core:ui"))
-    implementation(project(":core:common"))
-    implementation(project(":core:model-selector"))
-    implementation(project(":core:navigation"))
-    
-    // 資料相關依賴
-    implementation(project(":domain"))
-    implementation(project(":data"))
+//    // 功能模組依賴
+//    implementation(project(":feature:conversation"))
+//    implementation(project(":feature:chat-history"))
+//    implementation(project(":feature:settings"))
+//    implementation(project(":feature:tool-hub"))
+//
+//    // 核心模組依賴
+//    implementation(project(":core:ui"))
+//    implementation(project(":core:common"))
+//    implementation(project(":core:model-selector"))
+//    implementation(project(":core:navigation"))
+//
+//    // 資料相關依賴
+//    implementation(project(":domain"))
+//    implementation(project(":data"))
     
     // Compose 相關
     implementation(platform(libs.androidx.compose.bom))
