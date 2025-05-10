@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.protobuf)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -41,6 +43,23 @@ dependencies {
     
     // Arrow for functional programming
     implementation(libs.arrow.core)
+
+    // Networking
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlinx)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+    implementation(libs.okhttp.sse)
+    
+    // Dependency Injection
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    
+    // Logging
+    implementation(libs.timber)
+    
+    // Reflection for Tool Manager
+    implementation(libs.kotlin.reflect)
     
     // Testing
     testImplementation(libs.junit)
