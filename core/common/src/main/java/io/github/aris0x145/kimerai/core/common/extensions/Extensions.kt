@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.catch // Make sure this is kotlinx.coroutines.flo
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.map // Import the map operator
-import io.github.aris0x145.kimerai.core.common.result.Result
 
 /**
  * String 擴展函數
@@ -29,8 +28,8 @@ fun String?.orEmpty(defaultValue: String = ""): String {
  */
 fun <T> Flow<T>.asResult(): Flow<Result<T>> {
     return this
-        .map<T, Result<T>> { value -> Result.Success(value) }
-        .catch { exception -> emit(Result.Error(exception)) }
+        .map<T, Result<T>> { value -> Result.success(value) }
+        .catch { exception -> emit(Result.failure(exception)) }
 }
 
 /**
