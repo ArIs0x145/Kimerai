@@ -25,7 +25,7 @@ protobuf = "3.25.2"
 protobuf-plugin = "0.9.4"
 
 # Coroutines
-coroutines = "1.8.0"
+coroutines = "1.8.1"
 
 # Logging and Monitoring
 timber = "5.0.1"
@@ -48,7 +48,7 @@ onnxruntime = "1.17.0"
 work = "2.10.1"
 
 # Image Loading
-coil = "3.0.0"
+coil = "2.7.0"
 
 # Functional Programming
 arrow = "1.2.2"
