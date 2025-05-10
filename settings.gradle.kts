@@ -34,6 +34,7 @@ include(":core:database")
 include(":core:common")
 include(":core:model-selector")
 include(":core:navigation")
+include(":core:toolkit")
 
 // Domain
 include(":domain")

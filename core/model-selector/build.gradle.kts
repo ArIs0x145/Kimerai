@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "io.github.aris0x145.kimerai.feature.settings"
+    namespace = "io.github.aris0x145.kimerai.core.modelselector"
     compileSdk = 35
 
     defaultConfig {
@@ -30,15 +30,10 @@ android {
 }
 
 dependencies {
-    // Domain module
-    implementation(project(":domain"))
-
-    // Data module
-    implementation(project(":data"))
-
     // Core modules
-    implementation(project(":core:ui"))
     implementation(project(":core:common"))
+    implementation(project(":core:ui"))
+    implementation(project(":domain"))
     
     // Compose
     implementation(platform(libs.androidx.compose.bom))
@@ -50,14 +45,6 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material.icons.extended)
     
-    // MVI Architecture
-    implementation(libs.orbit.core)
-    implementation(libs.orbit.viewmodel)
-    implementation(libs.orbit.compose)
-    
-    // Navigation
-    implementation(libs.androidx.navigation.compose)
-    
     // Dependency Injection
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
@@ -68,10 +55,8 @@ dependencies {
     
     // Testing
     testImplementation(libs.junit)
-    testImplementation(libs.orbit.test)
     testImplementation(libs.mockk)
     testImplementation(libs.kotest.assertions)
-    testImplementation(libs.turbine)
     testImplementation(libs.kotlinx.coroutines.test)
     
     androidTestImplementation(libs.androidx.junit)

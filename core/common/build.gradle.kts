@@ -1,13 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "io.github.aris0x145.kimerai.domain"
+    namespace = "io.github.aris0x145.kimerai.core.common"
     compileSdk = 35
 
     defaultConfig {
@@ -28,17 +27,15 @@ android {
 dependencies {
     // Kotlin
     implementation(libs.androidx.core.ktx)
-    
-    // Coroutines for async operations
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
-    
-    // Serialization
-    implementation(libs.kotlinx.serialization.json)
     
     // Dependency Injection
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    
+    // Logging
+    implementation(libs.timber)
     
     // Arrow for functional programming
     implementation(libs.arrow.core)
