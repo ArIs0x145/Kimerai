@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "io.github.aris0x145.kimerai.domain"
+    namespace = "io.github.aris0x145.kimerai.core.network"
     compileSdk = 35
 
     defaultConfig {
@@ -26,19 +26,29 @@ android {
 }
 
 dependencies {
-    // Kotlin
-    implementation(libs.androidx.core.ktx)
+    // Core modules
+    implementation(project(":core:common"))
     
-    // Coroutines for async operations
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.kotlinx.coroutines.android)
+    // Networking
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlinx)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
     
     // Serialization
     implementation(libs.kotlinx.serialization.json)
     
+    // Kotlin
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    
     // Dependency Injection
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    
+    // Logging
+    implementation(libs.timber)
     
     // Arrow for functional programming
     implementation(libs.arrow.core)
@@ -48,6 +58,5 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
     testImplementation(libs.kotest.assertions)
-    testImplementation(libs.turbine)
     testImplementation(libs.kotlinx.coroutines.test)
 }

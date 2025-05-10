@@ -1,4 +1,5 @@
 plugins {
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
@@ -11,33 +12,34 @@ android {
 
     defaultConfig {
         minSdk = 24
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    
+
     kotlinOptions {
         jvmTarget = "11"
     }
-    
+
     buildFeatures {
         compose = true
     }
 }
 
 dependencies {
-    // 依賴領域層
+    // Domain module
     implementation(project(":domain"))
-    
-    // 依賴資料層
+
+    // Data module
     implementation(project(":data"))
-    
-    // 依賴核心模組
+
+    // Core modules
     implementation(project(":core:ui"))
     implementation(project(":core:common"))
-    implementation(project(":core:model-selector"))
+    implementation(project(":core:protocol"))
     
     // Compose
     implementation(platform(libs.androidx.compose.bom))
@@ -49,16 +51,31 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material.icons.extended)
     
-    // 導航
+    // MVI Architecture
+    implementation(libs.orbit.core)
+    implementation(libs.orbit.viewmodel)
+    implementation(libs.orbit.compose)
+    
+    // Navigation
     implementation(libs.androidx.navigation.compose)
     
-    // Hilt 依賴注入
+    // Dependency Injection
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
     
-    // 測試
+    // Image Loading
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
+    
+    // Testing
     testImplementation(libs.junit)
+    testImplementation(libs.orbit.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotest.assertions)
+    testImplementation(libs.turbine)
+    testImplementation(libs.kotlinx.coroutines.test)
+    
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     

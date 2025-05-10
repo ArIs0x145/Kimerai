@@ -42,23 +42,28 @@ android {
 }
 
 dependencies {
-    // 功能模組依賴
+    // Feature modules
     implementation(project(":feature:conversation"))
     implementation(project(":feature:chat-history"))
     implementation(project(":feature:settings"))
     implementation(project(":feature:tool-hub"))
-    
-    // 核心模組依賴
+
+    // Core modules
     implementation(project(":core:ui"))
     implementation(project(":core:common"))
     implementation(project(":core:model-selector"))
     implementation(project(":core:navigation"))
-    
-    // 資料相關依賴
+    implementation(project(":core:protocol"))
+    implementation(project(":core:toolkit"))
+    implementation(project(":core:agent-tools"))
+
+    // Domain module
     implementation(project(":domain"))
+
+    // Data module
     implementation(project(":data"))
     
-    // Compose 相關
+    // Compose UI
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -69,17 +74,27 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material.icons.extended)
     
-    // 導航
+    // Navigation
     implementation(libs.androidx.navigation.compose)
 
-    // Hilt 依賴注入
+    // Dependency Injection
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
+    
+    // MVI Architecture
+    implementation(libs.orbit.core)
+    implementation(libs.orbit.viewmodel)
+    implementation(libs.orbit.compose)
 
-    // 測試
+    // Testing
     testImplementation(platform(libs.androidx.compose.bom))
     testImplementation(libs.junit)
+    testImplementation(libs.orbit.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotest.assertions)
+    testImplementation(libs.turbine)
+    testImplementation(libs.kotlinx.coroutines.test)
 
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.junit)

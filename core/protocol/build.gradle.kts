@@ -2,12 +2,11 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.hilt)
-    alias(libs.plugins.ksp)
+    alias(libs.plugins.protobuf)
 }
 
 android {
-    namespace = "io.github.aris0x145.kimerai.domain"
+    namespace = "io.github.aris0x145.kimerai.core.protocol"
     compileSdk = 35
 
     defaultConfig {
@@ -26,28 +25,25 @@ android {
 }
 
 dependencies {
-    // Kotlin
-    implementation(libs.androidx.core.ktx)
+    // Core modules
+    implementation(project(":core:common"))
     
-    // Coroutines for async operations
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.kotlinx.coroutines.android)
+    // Protobuf
+    implementation(libs.protobuf.kotlin)
+    implementation(libs.protobuf.javalite)
     
     // Serialization
     implementation(libs.kotlinx.serialization.json)
     
-    // Dependency Injection
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
+    // Kotlin
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.kotlinx.coroutines.core)
     
     // Arrow for functional programming
     implementation(libs.arrow.core)
-    implementation(libs.arrow.fx.coroutines)
     
     // Testing
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
-    testImplementation(libs.kotest.assertions)
-    testImplementation(libs.turbine)
     testImplementation(libs.kotlinx.coroutines.test)
 }
