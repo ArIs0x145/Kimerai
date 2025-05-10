@@ -42,26 +42,6 @@ android {
 }
 
 dependencies {
-    // Feature modules
-    implementation(project(":feature:conversation"))
-    implementation(project(":feature:chat-history"))
-    implementation(project(":feature:settings"))
-    implementation(project(":feature:tool-hub"))
-
-    // Core modules
-    implementation(project(":core:ui"))
-    implementation(project(":core:common"))
-    implementation(project(":core:model-selector"))
-    implementation(project(":core:navigation"))
-    implementation(project(":core:protocol"))
-    implementation(project(":core:toolkit"))
-    implementation(project(":core:agent-tools"))
-
-    // Domain module
-    implementation(project(":domain"))
-
-    // Data module
-    implementation(project(":data"))
     
     // Compose UI
     implementation(platform(libs.androidx.compose.bom))
